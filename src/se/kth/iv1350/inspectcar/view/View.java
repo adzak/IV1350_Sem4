@@ -22,19 +22,24 @@ public class View
         this.controller = controller;
     }
 
-    public void openDoor(boolean openOrClose)
-    {
-        controller.garageDoorHandler(openOrClose);
-    }
-    
+    /**
+     * CalculateCost displays the cost of a specific inspection.
+     *
+     * @return the cost of the inspection to be performed.
+     */    
     public Amount calculateCost(String regNo)
     {
        Amount cost = controller.fetchCost(regNo);
        
        return cost;
     }
-    
-    public void inspection(String regNo)
+
+    /**
+     * Inspection displays inspection related operations.
+     *
+     * @param regNo defines a registration number of a given car.
+     */    
+    private void inspection(String regNo)
     {
        boolean pass = true;
        boolean fail = false;
@@ -55,7 +60,7 @@ public class View
                if (n.equals("P") || n.equals("Pass"))
                     controller.enterInspectionResult(pass, i);
                
-               if (n.equals("F") || n.equals("Fail"))
+               else
                     controller.enterInspectionResult(fail, i);
            }
            
@@ -73,59 +78,62 @@ public class View
          for(int i = 0; i < finalResult.length; i++)
          {
             if(finalResult.length == 1)
-               System.out.println("This inspection failed:" + finalResult[0]);
+               System.out.println("This inspection failed: " + finalResult[0]);
            
             else
             {
               if(i < 1)             
-                 System.out.println("These inspections failed:");
+                 System.out.println("These inspections failed: ");
 							
               if(i < finalResult.length - 1)
                  System.out.print(finalResult[i] + ", ");
               else
-                System.out.print(finalResult[i]);
+                System.out.println(finalResult[i]);
             }
-        }
+         }
        }      
     } 
 
+      /**
+       * This method establishes an inspection to be performed.
+       */
       public void startInspection()
       {
         Scanner input = new Scanner(System.in);
-        
         System.out.println("Vehicle inspection system.");
         System.out.println("Do you want to begin a new inspection? Y/N");
         String currentInput = input.nextLine();
         String regNo;
         boolean authorization = false;
-      	if(currentInput.equals("Y"))
+        boolean open  = true;
+        boolean close = false;
+        
+      	if(currentInput.equals("Y") || currentInput.equals("Yes") || currentInput.equals("yes"))
         {   
-            boolean open  = true;
-            this.openDoor(open); 
+            controller.garageDoorHandler(open); 
             System.out.println("Please close the garage door by pressing C.");
   	    currentInput = input.nextLine();
             if(currentInput.equals("C"))
-             controller.garageDoorHandler(false);            
-            
-            System.out.println("Please enter the registration number of the vehicle to be inspected:");
-            regNo = input.nextLine();
-          
-            System.out.println(this.calculateCost(regNo));
-            
-            System.out.println("Has the customer entered the creditcard? Y/N");
-            
-            currentInput = input.nextLine();
-            
-            if(currentInput.equals("Y"))
-                authorization  = controller.payWithCard(this.calculateCost(regNo));
-            
-            if(authorization)
             {
-                System.out.println("Transaction went trough!\n");
-                this.inspection(currentInput); 
-            }
+                controller.garageDoorHandler(false);            
+                System.out.println("Please enter the registration number of the vehicle to be inspected:");
+                regNo = input.nextLine();
+                System.out.println(this.calculateCost(regNo));
+                System.out.println("Has the customer entered the creditcard? Y/N");
             
+                currentInput = input.nextLine();
             
+                if(currentInput.equals("Y"))
+                {
+                    authorization  = controller.payWithCard(this.calculateCost(regNo));
+            
+                    if(authorization)
+                    {
+                        System.out.println("Transaction went trough!\n");
+                        this.inspection(regNo); 
+                    }
+                }
+            }         
         }
       }
 }

@@ -23,11 +23,17 @@ public class Controller
     private Garage garage;
     private CarRegistry carRegistry; 
     private CalculateCost calculateCost;
-  
-    //SUT//
     private CarDTO currentInspectedCar;
     private Inspection currentInspection;    
-    
+
+    /**
+     * Create a new instance representing the controller.
+     * 
+     * @param printer The printer is necessary for the controller to print documents.
+     * @param paymentAuthorization The payment authorization checks if a card transaction is valid or not.
+     * @param garage The garage is needed for the controller to grant access to the garage.
+     * @param carRegistry The car registry fetches information about a specific vehicle.
+     */
     public Controller(Printer printer, PaymentAuthorization paymentAuthorization, Garage garage, CarRegistry carRegistry)
     {
         this.printer = printer;
@@ -38,9 +44,9 @@ public class Controller
     }
     
      /**
-     * garageDoorHandler handles the different states of the garagedoor.
+     * garageDoorHandler handles the different states of the garage door.
      *
-     * @param openOrClose specifies the state of the garagedoor.
+     * @param openOrClose specifies the state of the garage door.
      */
     public void garageDoorHandler(boolean openOrClose)
     {
@@ -70,8 +76,8 @@ public class Controller
     /**
      * PayWithCard checks for authorization of payment and creates a receipt to be printed.
      *
-     * @param card contains multiple data necessary for method PayWithCard.
      * @param amount specifies the amount to be paid.
+     * @return returns the transaction status.
      */
     public boolean payWithCard(Amount amount)
     {
@@ -88,10 +94,10 @@ public class Controller
     }
   
     /**
-     * 
+     * FethNextInspection fetches the inspection moments for a given car.
      *
      * @param regNo defines the given register number of a car.
-     * @return 
+     * @return the inspection moments for a given car. 
      */
     public String[] fetchNextInspection(String regNo)
     {
@@ -105,10 +111,10 @@ public class Controller
     }
   
     /**
-     * enterInspectionResult 
+     * enterInspectionResult documents the evaluation of an inspection moment.
      *
-     * @param result 
-     * @param indexToUpdate 
+     * @param result defines the final evaluation.
+     * @param indexToUpdate determines what slot to update.
      */
     public void enterInspectionResult(boolean result, int indexToUpdate)
     {
@@ -116,7 +122,9 @@ public class Controller
     }
   
     /**
-     * 
+     * Contains specific methods for wrapping up the car inspection.
+     *
+     * @return returns the final result of the vehicle inspection.
      */
     public String[] finalizeInspection()
     {
@@ -127,12 +135,22 @@ public class Controller
         
         return finalResult;
     }
-  
+
+    /**
+     * Saves the current car to be inspected. 
+     *
+     * @param car is the car object to be inspected.
+     */
     private void saveCar(CarDTO car)
     {
         currentInspectedCar = car;
     }
-  
+
+    /**
+     * Saves the current inspection.
+     *
+     * @param currentInspection is the ongoing inspection object.
+     */
     private void saveInspection(Inspection currentInspection)
     {
         this.currentInspection = currentInspection;

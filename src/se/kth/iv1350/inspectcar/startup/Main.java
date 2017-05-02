@@ -15,11 +15,15 @@ import se.kth.iv1350.inspectcar.controller.Controller;
 import se.kth.iv1350.inspectcar.view.View;
 
 /**
- *
- * @author Adrian
+ * This class is responsible for the startup of the system. 
  */
 public class Main 
 {
+    /**
+    * This is the application's main method, which starts the entire car inspection system.
+    *
+    * @param args The are no command line parameters.
+    */
     public static void main(String[] args)
     {
        CarRegistry carRegistry = new CarRegistry();
