@@ -20,10 +20,10 @@ import se.kth.iv1350.inspectcar.view.View;
 public class Main 
 {
     /**
-    * This is the application's main method, which starts the entire car inspection system.
-    *
-    * @param args The are no command line parameters.
-    */
+     * This is the application's main method, which starts the entire car inspection system.
+     *
+     * @param args The are no command line parameters.
+     */
     public static void main(String[] args)
     {
        CarRegistry carRegistry = new CarRegistry();

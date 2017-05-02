@@ -74,7 +74,7 @@ public class Controller
     }
   
     /**
-     * PayWithCard checks for authorization of payment and creates a receipt to be printed.
+     * payWithCard checks for authorization of payment and creates a receipt to be printed.
      *
      * @param amount specifies the amount to be paid.
      * @return returns the transaction status.

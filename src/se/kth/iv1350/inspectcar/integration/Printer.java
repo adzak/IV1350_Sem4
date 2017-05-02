@@ -20,7 +20,7 @@ public class Printer
 
      /**
       * The method printCardReceipt is used for showing that the printer is printing the receipt.
-      *@param receipt The receipt to be printed.
+      * @param receipt The receipt to be printed.
       */
      public void printCardReceipt(CardReceipt receipt)
      {
@@ -29,7 +29,7 @@ public class Printer
 
      /**
       * The method printInspectionResult is used for showing that the printer is printing the final result of car inspection.
-      *@param inspResult The final result of inspection that is going to be printed.
+      * @param inspResult The final result of inspection that is going to be printed.
       */
      public void printInspectionResult(InspectionResult inspResult)
      {
