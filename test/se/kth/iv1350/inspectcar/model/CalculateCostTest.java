@@ -49,9 +49,7 @@ public class CalculateCostTest
           regNo = randomPlates();
           car = new CarDTO(regNo);
           result = instance.calcCost(car);
-          
-          if(result < 0)
-              fail("Negative cost detected.");
+          assertFalse("The result was not negative!", result < 0);
       }
     }
     
