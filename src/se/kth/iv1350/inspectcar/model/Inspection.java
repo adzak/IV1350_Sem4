@@ -52,15 +52,15 @@ public class Inspection
      */
     public String[] compileInspectionResult()
     {	
-        int FailedInspectionMoments = 0;
+        int failedInspectionMoments = 0;
       
         for(int i = 0; i < partResult.length; i++)
         {
             if(partResult[i] == false)
-                FailedInspectionMoments++;
+                failedInspectionMoments++;
         }
       
-        String[] finalResult = new String[FailedInspectionMoments];
+        String[] finalResult = new String[failedInspectionMoments];
         int indexToUpdate = 0; 
         for(int i = 0; i < standardInspectionMoments.length; i++)
         {
