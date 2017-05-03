@@ -55,6 +55,6 @@ public class Garage
   public void closeDoor()
   {
     garageDoorOpened = false;
-      System.out.println("Garage door is closing...");
+    System.out.println("Garage door is closing...");
   } 
 }
