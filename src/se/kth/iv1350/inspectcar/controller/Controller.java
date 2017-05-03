@@ -90,7 +90,6 @@ public class Controller
         printer.printCardReceipt(receipt);
         
         return resultOfAuthorization;
-      
     }
   
     /**

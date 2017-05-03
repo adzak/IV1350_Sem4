@@ -46,7 +46,7 @@ public class Garage
     if(displayNumber == MAX_DISPLAY_DIGITS)
         displayNumber = 0;  
       
-      return displayNumber;
+    return displayNumber;
   }
   
   /**
@@ -54,7 +54,7 @@ public class Garage
    */
   public void closeDoor()
   {
-      garageDoorOpened = false;
+    garageDoorOpened = false;
       System.out.println("Garage door is closing...");
   } 
 }

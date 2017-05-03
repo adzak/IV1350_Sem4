@@ -24,6 +24,6 @@ public class InspectionResult
      */
     public Inspection getInspectionResult()
     {
-      return inspectionResult;
+        return inspectionResult;
     }
 }

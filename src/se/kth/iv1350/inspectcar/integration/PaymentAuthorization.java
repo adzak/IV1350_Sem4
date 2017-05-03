@@ -1,4 +1,3 @@
-
 package se.kth.iv1350.inspectcar.integration;
 
 import se.kth.iv1350.inspectcar.model.Amount;

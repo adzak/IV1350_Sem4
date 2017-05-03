@@ -68,6 +68,6 @@ public class Inspection
                 finalResult[indexToUpdate++] = standardInspectionMoments[i];
         }
     	
-      return finalResult;
+        return finalResult;
     }
   }

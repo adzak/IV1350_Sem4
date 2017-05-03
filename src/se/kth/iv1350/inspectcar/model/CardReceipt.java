@@ -1,7 +1,7 @@
 package se.kth.iv1350.inspectcar.model;
 
 /**
- * This class gives information about card receipt.
+ * This class gives information about a card receipt.
  * 
  */
 public class CardReceipt 
@@ -15,7 +15,7 @@ public class CardReceipt
      */
     public CardReceipt(Amount amount)
     {
-      this.amount = amount;
+        this.amount = amount;
     }
   
     /**

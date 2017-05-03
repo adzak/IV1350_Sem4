@@ -24,7 +24,7 @@ public class CarDTO
      */
     public String[] getStandardInspectionMoments()
     {
-      return standardInspectionMoments;
+        return standardInspectionMoments;
     }
 
     /**
