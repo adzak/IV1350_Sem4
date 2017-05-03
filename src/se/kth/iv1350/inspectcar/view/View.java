@@ -94,11 +94,11 @@ public class View
        }      
     } 
 
-      /**
-       * This method establishes an inspection to be performed.
-       */
-      public void startInspection()
-      {
+    /**
+     * This method establishes an inspection to be performed.
+     */
+    public void startInspection()
+    {
         Scanner input = new Scanner(System.in);
         System.out.println("Vehicle inspection system.");
         System.out.println("Do you want to begin a new inspection? Y/N");
@@ -135,5 +135,5 @@ public class View
                 }
             }         
         }
-      }
+    }
 }
