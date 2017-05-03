@@ -20,6 +20,7 @@ public class Amount
     }    
     /**
      * Method getCurrency is in charge of getting currency.
+     * 
      * @return type of currency is returned.
      */
     public String getCurrency()
@@ -29,6 +30,7 @@ public class Amount
 
     /**
      * Method getAmount is in charge of getting amount.
+     * 
      * @return amount of inspecitons is returned.
      */
     public double getAmount()

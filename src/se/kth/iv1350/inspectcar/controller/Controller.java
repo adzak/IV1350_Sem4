@@ -50,11 +50,11 @@ public class Controller
      */
     public void garageDoorHandler(boolean openOrClose)
     {
-    	if(openOrClose == true)
-        garage.nextCustomer();
+        if(openOrClose == true)
+            garage.nextCustomer();
       
         else
-        garage.closeDoor();
+            garage.closeDoor();
     }
   	
     /**
@@ -84,9 +84,7 @@ public class Controller
         Date date = new Date();
         CreditCard card = new CreditCard(1234, "1234", "Test Testsson", date, 123);
         boolean resultOfAuthorization = paymentAuthorization.authorizePayment(card, amount);
-        
         CardReceipt receipt = new CardReceipt(amount);
-        
         printer.printCardReceipt(receipt);
         
         return resultOfAuthorization;
@@ -101,10 +99,8 @@ public class Controller
     public String[] fetchNextInspection(String regNo)
     {
       	Inspection insp = new Inspection(currentInspectedCar);
-      
-      	saveInspection(insp);
-      	
-        String[] inspectionMoments = currentInspectedCar.getStandardInspectionMoments();
+        saveInspection(insp);
+      	String[] inspectionMoments = currentInspectedCar.getStandardInspectionMoments();
           
         return inspectionMoments;
     }

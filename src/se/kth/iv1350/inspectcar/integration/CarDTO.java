@@ -11,6 +11,7 @@ public class CarDTO
     
     /**
      * Create a new instance that include information about CarDTO.
+     * 
      * @param regNo Registration number for specificed car.
      */           
     public CarDTO(String regNo)
@@ -20,6 +21,7 @@ public class CarDTO
     
     /**
      * The method getInspectionMoments is in charge of getting inspection moments.
+     * 
      * @return Standard inspection moments that each car will have to go through is returned.
      */
     public String[] getStandardInspectionMoments()

@@ -9,8 +9,7 @@ import se.kth.iv1350.inspectcar.model.CreditCard;
  */
 public class PaymentAuthorization 
 {
-    
-    private boolean paymentAuthorizationSystemOnline;
+     private boolean paymentAuthorizationSystemOnline;
     
     /**
      * Creates new instance representing an external online payment authorization system.
@@ -22,6 +21,7 @@ public class PaymentAuthorization
     
     /**
      * The method authorizePayment returns true if the payment is authorized and false if it is not. 
+     * 
      * @param card The card used for the payment transaction.
      * @param amount The amount to withdraw from customer's bank account. 
      * @return Result of an authorize payment request. This dummy implementation always returns true, 

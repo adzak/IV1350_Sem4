@@ -29,9 +29,9 @@ public class View
      */    
     public Amount calculateCost(String regNo)
     {
-       Amount cost = controller.fetchCost(regNo);
+        Amount cost = controller.fetchCost(regNo);
        
-       return cost;
+        return cost;
     }
 
     /**
@@ -41,17 +41,15 @@ public class View
      */    
     private void inspection(String regNo)
     {
-       boolean pass = true;
-       boolean fail = false;
+        boolean pass = true;
+        boolean fail = false;
        
-       String[] inspectionParts = controller.fetchNextInspection(regNo);
+        String[] inspectionParts = controller.fetchNextInspection(regNo);
+        Scanner enterResult = new Scanner(System.in);
+        System.out.println("Enter inspection result P/F, Pass/Fail: ");
        
-       Scanner enterResult = new Scanner(System.in);
-       
-       System.out.println("Enter inspection result P/F, Pass/Fail: ");
-       
-       for(int i = 0; i < inspectionParts.length; i++)
-       {
+        for(int i = 0; i < inspectionParts.length; i++)
+        {
            System.out.println(inspectionParts[i]);
            String n = enterResult.nextLine();
            
@@ -66,32 +64,33 @@ public class View
            
            else
                i--;
-       }
+        }
 
-       String[] finalResult = controller.finalizeInspection();
+        String[] finalResult = controller.finalizeInspection();
       
-       if(finalResult.length == 0)
-          System.out.println("No failed inspections.");
+        if(finalResult.length == 0)
+            System.out.println("No failed inspections.");
       
-       else
-       {
-         for(int i = 0; i < finalResult.length; i++)
-         {
-            if(finalResult.length == 1)
-               System.out.println("This inspection failed: " + finalResult[0]);
-           
-            else
+        else
+        {
+            for(int i = 0; i < finalResult.length; i++)
             {
-              if(i < 1)             
-                 System.out.println("These inspections failed: ");
+                if(finalResult.length == 1)
+                    System.out.println("This inspection failed: " + finalResult[0]);
+                
+                else
+                {
+                    if(i < 1)             
+                        System.out.println("These inspections failed: ");
 							
-              if(i < finalResult.length - 1)
-                 System.out.print(finalResult[i] + ", ");
-              else
-                System.out.println(finalResult[i]);
+                    if(i < finalResult.length - 1)
+                        System.out.print(finalResult[i] + ", ");
+                    
+                    else
+                        System.out.println(finalResult[i]);
+                }
             }
-         }
-       }      
+        }      
     } 
 
     /**

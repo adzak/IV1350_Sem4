@@ -1,7 +1,6 @@
 package se.kth.iv1350.inspectcar.integration;
 
  /**
-  * 
   * This class is an interface to the control system opening the door
   * and also to the queue number display.
   */
@@ -50,7 +49,7 @@ public class Garage
   }
   
   /**
-   * closeDoor closes the door. 
+   * closeDoor closes the garage door. 
    */
   public void closeDoor()
   {
