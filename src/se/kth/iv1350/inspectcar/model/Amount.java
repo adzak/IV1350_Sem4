@@ -17,7 +17,8 @@ public class Amount
     {
         this.currency = "SEK";
         this.amount = amount;
-    }    
+    } 
+    
     /**
      * Method getCurrency is in charge of getting currency.
      * 

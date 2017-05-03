@@ -4,9 +4,8 @@ import se.kth.iv1350.inspectcar.controller.Controller;
 import se.kth.iv1350.inspectcar.model.Amount;
 import java.util.*;
 
- /**
+/**
   * This class is a placeholder for the view.
-  * 
   */
 public class View 
 {
@@ -59,7 +58,7 @@ public class View
                     controller.enterInspectionResult(pass, i);
                
                else
-                    controller.enterInspectionResult(fail, i);
+                   controller.enterInspectionResult(fail, i);
            }
            
            else

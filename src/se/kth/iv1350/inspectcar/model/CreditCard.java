@@ -31,46 +31,50 @@ public class CreditCard
         this.CVC = CVC;
     }
     
- /*
-    * Method getPin is in charge of getting the pin code.
-    * @return number of the pin code.
-    */
+    /**
+     * Method getPin is in charge of getting the pin code.
+     *
+     * @return number of the pin code.
+     */
     public int getPin ()
     {
         return pin;
     }
   
-   /*
-    * Method getNumber is in charge of getting the card number.
-    * @return number of the credit card.
-    */
+    /**
+     * Method getNumber is in charge of getting the card number.
+     * @return number of the credit card.
+     */
     public String getNumber()
     {
         return number;
     }
   
-   /*
-    * Method getHolder is in charge of getting the card owner's name.
-    * @return name of the card owner.
-    */
+    /**
+     * Method getHolder is in charge of getting the card owner's name.
+     * 
+     * @return name of the card owner.
+     */
     public String getHolder()
     {
         return holder;
     }
   
-   /*
-    * Method getExpiryDate is in charge of getting the date of expiration.
-    * @return number of the date of expiration.
-    */
+    /**
+     * Method getExpiryDate is in charge of getting the date of expiration.
+     * 
+     * @return number of the date of expiration.
+     */
     public Date getExpiryDate()
     {
         return expiryDate;
     }
   
-   /*
-    * Method getCVC is in charge of getting the CVC number.
-    * @return the number of the CVC.
-    */
+    /**
+     * Method getCVC is in charge of getting the CVC number.
+     * 
+     * @return the number of the CVC.
+     */
     public int getCVC()
     {
         return CVC;

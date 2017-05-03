@@ -18,6 +18,7 @@ public class CarRegistry
 
     /**
      * The method findInspection is used to get information about the inspection. 
+     * 
      * @param regNo Registration number of the car to be inspected
      * @return car contains the necessary information to make cost calculations for the inspection and tells what inspections to be made.
      */

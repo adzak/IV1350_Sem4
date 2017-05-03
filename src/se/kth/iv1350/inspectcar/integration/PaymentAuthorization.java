@@ -9,7 +9,7 @@ import se.kth.iv1350.inspectcar.model.CreditCard;
  */
 public class PaymentAuthorization 
 {
-     private boolean paymentAuthorizationSystemOnline;
+    private boolean paymentAuthorizationSystemOnline;
     
     /**
      * Creates new instance representing an external online payment authorization system.

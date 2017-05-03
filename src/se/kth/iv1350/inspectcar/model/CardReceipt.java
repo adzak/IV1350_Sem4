@@ -2,7 +2,6 @@ package se.kth.iv1350.inspectcar.model;
 
 /**
  * This class gives information about a card receipt.
- * 
  */
 public class CardReceipt 
 {
@@ -20,6 +19,7 @@ public class CardReceipt
   
     /**
      * Method getAmount is in charge of getting amount of inspection's cost.
+     * 
      * @return amount of cost that is needed to be paid for inspection.
      */
     public Amount getAmount()
