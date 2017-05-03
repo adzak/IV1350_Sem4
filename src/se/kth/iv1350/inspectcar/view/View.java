@@ -98,7 +98,7 @@ public class View
     public void startInspection()
     {
         Scanner input = new Scanner(System.in);
-        System.out.println("Vehicle inspection system.");
+        System.out.println("* * * Vehicle inspection system.* * *");
         System.out.println("Do you want to begin a new inspection? Y/N");
         String currentInput = input.nextLine();
         String regNo;
