@@ -11,7 +11,12 @@ import se.kth.iv1350.inspectcar.model.Amount;
 import se.kth.iv1350.inspectcar.model.CreditCard;
 import se.kth.iv1350.inspectcar.model.CardReceipt;
 import se.kth.iv1350.inspectcar.model.InspectionResult;
+import se.kth.iv1350.inspectcar.integration.CarRegistryException;
 import java.util.Date;
+import se.kth.iv1350.inspectcar.util.logger.Logger;
+import java.io.*; 
+
+
 
 /**
  * This is the application's single controller. All calls to the model pass through here.
@@ -24,7 +29,8 @@ public class Controller
     private CarRegistry carRegistry; 
     private CalculateCost calculateCost;
     private CarDTO currentInspectedCar;
-    private Inspection currentInspection;    
+    private Inspection currentInspection; 
+    private Logger fileLogger;
 
     /**
      * Create a new instance representing the controller.
@@ -41,6 +47,16 @@ public class Controller
         this.garage = garage;
         this.carRegistry = carRegistry;
         this.calculateCost = new CalculateCost();
+        
+        try
+        {
+            this.fileLogger = new Logger();
+        }
+        
+        catch(FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
     }
     
      /**
@@ -63,14 +79,22 @@ public class Controller
      * @param regNo specifies the registration number of a car.
      * @return the cost of inspection for a given car.
      */
-    public Amount fetchCost(String regNo)
-    {
-        CarDTO car = carRegistry.findInspection(regNo);
-      	this.saveCar(car);
-      	double amount = calculateCost.calcCost(car);
-        Amount cost = new Amount(amount);
-      
-        return cost;
+    public Amount fetchCost(String regNo) throws ControllerException
+    {     
+        try
+        {
+          CarDTO car = carRegistry.findInspection(regNo);
+          this.saveCar(car);
+          double amount = calculateCost.calcCost(car);
+          Amount cost = new Amount(amount);
+          return cost;
+        }
+        
+        catch(CarRegistryException e)
+        {
+            fileLogger.caughtException("CarRegistryException, caused by the entered data: " + regNo);
+            throw new ControllerException(regNo);
+        }
     }
   
     /**

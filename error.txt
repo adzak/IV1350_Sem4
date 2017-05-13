@@ -1,0 +1,6 @@
+2017-maj-12 17:45:46- Exception was thrown: CarRegistryException, caused by the entered data: YALMIS
+2017-maj-12 17:45:46- Exception was thrown: ControllerException, caused by the entered data: YALMIS
+2017-maj-12 17:45:46- Exception was thrown: CarRegistryException, caused by the entered data: MAMIS
+2017-maj-12 17:45:46- Exception was thrown: ControllerException, caused by the entered data: MAMIS
+2017-maj-12 17:45:46- Exception was thrown: CarRegistryException, caused by the entered data: LALIS
+2017-maj-12 17:45:46- Exception was thrown: ControllerException, caused by the entered data: LALIS

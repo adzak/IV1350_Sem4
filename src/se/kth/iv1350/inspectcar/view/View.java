@@ -2,7 +2,10 @@ package se.kth.iv1350.inspectcar.view;
         
 import se.kth.iv1350.inspectcar.controller.Controller;
 import se.kth.iv1350.inspectcar.model.Amount;
+import se.kth.iv1350.inspectcar.controller.ControllerException;
 import java.util.*;
+import se.kth.iv1350.inspectcar.util.logger.Logger;
+import java.io.*; 
 
 /**
   * This class is a placeholder for the view.
@@ -10,6 +13,8 @@ import java.util.*;
 public class View 
 {
     private Controller controller;
+    
+    private Logger fileLogger;
     
     /**
      * Creates a new instance that will use the specified controller for all system operations.
@@ -19,19 +24,30 @@ public class View
     public View(Controller controller)
     {
         this.controller = controller;
+        
+        try
+        {
+           fileLogger = new Logger(); 
+        }
+        
+        catch(FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     /**
      * CalculateCost displays the cost of a specific inspection.
      *
      * @return the cost of the inspection to be performed.
-     */    
+     */   
+    /*
     public Amount calculateCost(String regNo)
     {
         Amount cost = controller.fetchCost(regNo);
        
         return cost;
-    }
+    }*/
 
     /**
      * Inspection displays inspection related operations.
@@ -105,6 +121,7 @@ public class View
         boolean authorization = false;
         boolean open  = true;
         boolean close = false;
+        boolean invalid = true;
         
       	if(currentInput.equals("Y") || currentInput.equals("Yes") || currentInput.equals("yes"))
         {   
@@ -116,14 +133,32 @@ public class View
                 controller.garageDoorHandler(false);            
                 System.out.println("Please enter the registration number of the vehicle to be inspected:");
                 regNo = input.nextLine();
-                System.out.println(this.calculateCost(regNo));
+                
+                while(invalid)
+                {
+                    try
+                    {
+                        System.out.println(controller.fetchCost(regNo));
+                        invalid = false;
+                    }
+                
+                    catch(ControllerException e)
+                    {
+                        fileLogger.caughtException("ControllerException, caused by the entered data: " + regNo);
+                        System.out.println(e.getMessage());
+                        System.out.println("Please enter the registration number of the vehicle to be inspected:");
+                        regNo = input.nextLine();
+                    }
+                }
+                
                 System.out.println("Has the customer entered the creditcard? Y/N");
             
                 currentInput = input.nextLine();
             
                 if(currentInput.equals("Y"))
                 {
-                    authorization  = controller.payWithCard(this.calculateCost(regNo));
+                    authorization  = true;
+                            //controller.payWithCard(controller.fetchCost(regNo));
             
                     if(authorization)
                     {
