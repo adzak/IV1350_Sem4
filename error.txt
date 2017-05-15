@@ -8,3 +8,5 @@
 2017-maj-13 11:30:50- Exception was thrown: ControllerException, caused by the entered data: RIP
 2017-maj-13 11:30:50- Exception was thrown: CarRegistryException, caused by the entered data: AH
 2017-maj-13 11:30:50- Exception was thrown: ControllerException, caused by the entered data: AH
+2017-maj-15 16:31:28- Exception was thrown: CarRegistryException, caused by the entered data: YALMIS
+2017-maj-15 16:31:28- Exception was thrown: ControllerException, caused by the entered data: YALMIS

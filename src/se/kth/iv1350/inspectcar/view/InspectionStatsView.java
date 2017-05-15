@@ -29,6 +29,7 @@ public class InspectionStatsView implements InspectionObserver
     {
         totalFailed += failedInspectionMoments;
         totalPassed += (4 - failedInspectionMoments);
+        printCurrentState();
     }
 
     

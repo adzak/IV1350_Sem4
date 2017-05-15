@@ -3,7 +3,7 @@ package se.kth.iv1350.inspectcar.controller;
 import se.kth.iv1350.inspectcar.util.logger.Logger;
 import java.io.FileNotFoundException;
 /**
- * Thrown when an illegial registration number is given. 
+ * Thrown when an illegal registration number is given. 
  */
 public class IllegalRegNoException extends Exception
 {
@@ -20,9 +20,6 @@ public class IllegalRegNoException extends Exception
         super("There are no inspections for the entered license number: " + regNo);
     }
     
-    /**
-     * @return The registration number with no inspections.
-     */
     public String getInvalidRegNo()
     {
         return invalidRegNo;

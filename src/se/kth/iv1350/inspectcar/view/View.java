@@ -148,7 +148,6 @@ public class View
                 if(currentInput.equals("Y"))
                 {
                     authorization  = true;
-                            //controller.payWithCard(controller.fetchCost(regNo));
             
                     if(authorization)
                     {
