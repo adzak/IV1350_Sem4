@@ -15,8 +15,9 @@ import se.kth.iv1350.inspectcar.integration.CarRegistryException;
 import java.util.Date;
 import se.kth.iv1350.inspectcar.util.logger.Logger;
 import java.io.*; 
-
-
+import java.util.ArrayList;
+import java.util.List;
+import se.kth.iv1350.inspectcar.model.InspectionObserver;
 
 /**
  * This is the application's single controller. All calls to the model pass through here.
@@ -31,6 +32,8 @@ public class Controller
     private CarDTO currentInspectedCar;
     private Inspection currentInspection; 
     private Logger fileLogger;
+    private List<InspectionObserver> observers = new ArrayList<>();
+
 
     /**
      * Create a new instance representing the controller.
@@ -78,8 +81,10 @@ public class Controller
      *
      * @param regNo specifies the registration number of a car.
      * @return the cost of inspection for a given car.
+     * @throws IllegalRegNoException if a carRegistryException has been caught, 
+     * this in order to forward the exception to the View.
      */
-    public Amount fetchCost(String regNo) throws ControllerException
+    public Amount fetchCost(String regNo) throws IllegalRegNoException
     {     
         try
         {
@@ -93,7 +98,7 @@ public class Controller
         catch(CarRegistryException e)
         {
             fileLogger.caughtException("CarRegistryException, caused by the entered data: " + regNo);
-            throw new ControllerException(regNo);
+            throw new IllegalRegNoException(regNo);
         }
     }
   
@@ -147,10 +152,12 @@ public class Controller
      */
     public String[] finalizeInspection()
     {
+        currentInspection.addObserver(observers);
       	String[] finalResult = currentInspection.compileInspectionResult();
       	currentInspectedCar.updateInspectionMoments(finalResult);
     	InspectionResult inspResult = new InspectionResult(currentInspection);
       	printer.printInspectionResult(inspResult);
+        
         
         return finalResult;
     }
@@ -173,5 +180,15 @@ public class Controller
     private void saveInspection(Inspection currentInspection)
     {
         this.currentInspection = currentInspection;
-    }    
+    }
+
+    /** 
+     * The specified observer will be notified when the number of failed inspection moments has been updated. 
+     * 
+     * @param obs the observer to be added in the observer list.
+     */
+    public void addInspectionObserver(InspectionObserver obs)
+    {
+        observers.add(obs);
+    }
 }

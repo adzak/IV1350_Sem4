@@ -1,6 +1,8 @@
 package se.kth.iv1350.inspectcar.model;
 
 import se.kth.iv1350.inspectcar.integration.CarDTO;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Class Inspection represents an inspection of a vehicle. 
@@ -11,6 +13,7 @@ public class Inspection
     private boolean[] partResult;
     private String[] standardInspectionMoments;
     private String[] previouslyFailedInspectionMoments;
+    private List<InspectionObserver> observers = new ArrayList<>();
 
     /**
      * Create a new instance, representing an inspection of the specified vehicle.
@@ -59,9 +62,12 @@ public class Inspection
             if(partResult[i] == false)
                 failedInspectionMoments++;
         }
-      
+        
+        notifyObservers(failedInspectionMoments);
+        
         String[] finalResult = new String[failedInspectionMoments];
         int indexToUpdate = 0; 
+        
         for(int i = 0; i < standardInspectionMoments.length; i++)
         {
             if(partResult[i] == false)
@@ -69,5 +75,23 @@ public class Inspection
         }
     	
         return finalResult;
+    }
+
+    /**
+     * The specified observers will be notified when the number of failed inspection moments has been updated.
+     *
+     * @param observers the observers to notify.
+     */
+    public void addObserver(List<InspectionObserver> observer)
+    {
+        observers.addAll(observer);
+    }
+    
+    private void notifyObservers(int failedInspectionMoments)
+    {
+        for(InspectionObserver obs : observers)
+        {
+            obs.updateDisplay(failedInspectionMoments);
+        }
     }
   }

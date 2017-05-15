@@ -1,6 +1,10 @@
-2017-maj-12 17:45:46- Exception was thrown: CarRegistryException, caused by the entered data: YALMIS
-2017-maj-12 17:45:46- Exception was thrown: ControllerException, caused by the entered data: YALMIS
-2017-maj-12 17:45:46- Exception was thrown: CarRegistryException, caused by the entered data: MAMIS
-2017-maj-12 17:45:46- Exception was thrown: ControllerException, caused by the entered data: MAMIS
-2017-maj-12 17:45:46- Exception was thrown: CarRegistryException, caused by the entered data: LALIS
-2017-maj-12 17:45:46- Exception was thrown: ControllerException, caused by the entered data: LALIS
+2017-maj-13 09:20:11- Exception was thrown: CarRegistryException, caused by the entered data: MEME
+2017-maj-13 09:20:11- Exception was thrown: ControllerException, caused by the entered data: MEME
+2017-maj-13 09:20:11- Exception was thrown: CarRegistryException, caused by the entered data: RORORORO
+2017-maj-13 09:20:11- Exception was thrown: ControllerException, caused by the entered data: RORORORO
+2017-maj-13 09:20:11- Exception was thrown: CarRegistryException, caused by the entered data: KAZO
+2017-maj-13 09:20:11- Exception was thrown: ControllerException, caused by the entered data: KAZO
+2017-maj-13 11:30:50- Exception was thrown: CarRegistryException, caused by the entered data: RIP
+2017-maj-13 11:30:50- Exception was thrown: ControllerException, caused by the entered data: RIP
+2017-maj-13 11:30:50- Exception was thrown: CarRegistryException, caused by the entered data: AH
+2017-maj-13 11:30:50- Exception was thrown: ControllerException, caused by the entered data: AH

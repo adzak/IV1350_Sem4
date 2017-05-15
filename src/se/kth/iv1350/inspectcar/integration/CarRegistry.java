@@ -11,6 +11,7 @@ public class CarRegistry
     private boolean carRegistryOnline;
     private static final String[] validRegNoList = {"ABC123","DEF456", "GHI789", "PALMIS"};
     private Logger fileLogger;
+    
     /**
      * Creates a new instance representing a car registry system.
      * 
@@ -34,6 +35,7 @@ public class CarRegistry
      * 
      * @param regNo Registration number of the car to be inspected
      * @return car contains the necessary information to make cost calculations for the inspection and tells what inspections to be made.
+     * @throws CarRegistryException if there are no inspection for the entered registration number.
      */
     public CarDTO findInspection(String regNo) throws CarRegistryException
     {

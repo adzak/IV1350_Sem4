@@ -1,12 +1,19 @@
 package se.kth.iv1350.inspectcar.integration;
 
 /**
- * This class blahblah exception
+ * 
+ * Thrown when an illegal registration number is given. 
  */
 public class CarRegistryException extends Exception
 {
-    public CarRegistryException(String msg)
+    /**
+     * Creates a new instance with a message specyfing that there were no
+     * inspections to be found.
+     * 
+     * @param errorMessage a message that describe what went wrong.
+     */
+    public CarRegistryException(String errorMessage)
     {
-        super(msg);
+        super(errorMessage);
     }
 }

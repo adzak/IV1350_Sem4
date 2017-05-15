@@ -2,7 +2,7 @@ package se.kth.iv1350.inspectcar.view;
         
 import se.kth.iv1350.inspectcar.controller.Controller;
 import se.kth.iv1350.inspectcar.model.Amount;
-import se.kth.iv1350.inspectcar.controller.ControllerException;
+import se.kth.iv1350.inspectcar.controller.IllegalRegNoException;
 import java.util.*;
 import se.kth.iv1350.inspectcar.util.logger.Logger;
 import java.io.*; 
@@ -13,7 +13,6 @@ import java.io.*;
 public class View 
 {
     private Controller controller;
-    
     private Logger fileLogger;
     
     /**
@@ -34,21 +33,11 @@ public class View
         {
             e.printStackTrace();
         }
+        
+        controller.addInspectionObserver(new InspectionStatsView());
+        
     }
-
-    /**
-     * CalculateCost displays the cost of a specific inspection.
-     *
-     * @return the cost of the inspection to be performed.
-     */   
-    /*
-    public Amount calculateCost(String regNo)
-    {
-        Amount cost = controller.fetchCost(regNo);
-       
-        return cost;
-    }*/
-
+    
     /**
      * Inspection displays inspection related operations.
      *
@@ -105,7 +94,8 @@ public class View
                         System.out.println(finalResult[i]);
                 }
             }
-        }      
+        } 
+        
     } 
 
     /**
@@ -142,7 +132,7 @@ public class View
                         invalid = false;
                     }
                 
-                    catch(ControllerException e)
+                    catch(IllegalRegNoException e)
                     {
                         fileLogger.caughtException("ControllerException, caused by the entered data: " + regNo);
                         System.out.println(e.getMessage());
